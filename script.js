@@ -12,18 +12,37 @@ function showScreen(n) {
 let holdVal = 440, timer;
 function startHold() {
   function startHold(e) {
-  if (e) e.preventDefault();
-}
-holdArea.addEventListener("touchstart", startHold, { passive: false });
+  // 1. Mobile par copy/selection menu rokne ka sahi tarika
+  if (e && e.cancelable) {
+    // Isse long-press menu nahi aayega par click/hold kaam karega
+    e.stopPropagation(); 
+  }
+
+  // 2. Music wake up (GitHub/Mobile fix)
+  if (music.paused) {
+    music.play().then(() => music.pause()).catch(() => {});
+  }
+
+  // Purana timer logic jo aapne image mein dikhaya tha
+  clearInterval(timer); // Pehle wala timer clear karein safety ke liye
   timer = setInterval(() => {
-    holdVal -= 4; // Fill speed
+    holdVal -= 4; 
     if (holdVal <= 0) {
       clearInterval(timer);
       music.play();
-      showScreen(1);
+      showScreen(1); // Screen 2 par le jayega
     }
-    circle.style.strokeDashoffset = holdVal;
+    // Circle progress bar update
+    if(circle) circle.style.strokeDashoffset = holdVal;
   }, 20);
+}
+
+// Event Listeners ko aise hi rehne dena
+holdArea.addEventListener("mousedown", startHold);
+holdArea.addEventListener("touchstart", startHold, { passive: false });
+holdArea.addEventListener("mouseup", stopHold);
+holdArea.addEventListener("touchend", stopHold);
+holdArea.addEventListener("mouseleave", stopHold); // Agar finger bahar chali jaye
 }
 function stopHold() { clearInterval(timer); holdVal = 440; circle.style.strokeDashoffset = 440; }
 
@@ -112,5 +131,6 @@ document.getElementById("claim").onclick = () => showScreen(3);
 document.querySelector(".flip-inner").onclick = function() {
   document.querySelector(".flip-card").classList.toggle("flipped");
 };
+
 
 
