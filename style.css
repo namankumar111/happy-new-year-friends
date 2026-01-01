@@ -57,26 +57,21 @@ body { height:100vh; overflow:hidden; background: #050008; color:white; font-fam
     border: 2px solid #c0c0c0; /* Silver border */
     box-shadow: 0 0 25px rgba(192, 192, 192, 0.3); 
 }
-
 .ticket-inner { 
     border: 1px dashed #c0c0c0; /* Silver dashed line */
 }
-
 .ticket-title { 
     color: #e0e0e0; /* Bright Silver/White color */
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     letter-spacing: 2px; 
 }
-
-.ticket-icon-gold { 
+.ticket-icon{ 
     color: #c0c0c0; /* Silver icon */
     filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
 }
-
 .divider { 
     background: rgba(192, 192, 192, 0.3); /* Silver divider line */
 }
-
 .claim-btn { 
     color: #aaaaaa; /* Light grey button text */
 }
@@ -106,4 +101,5 @@ body { height:100vh; overflow:hidden; background: #050008; color:white; font-fam
   animation: fadeInSmooth 1s ease forwards;
 
 }
+
 
