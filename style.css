@@ -38,7 +38,7 @@ body { height:100vh; overflow:hidden; background: #050008; color:white; font-fam
 .pink { color:#ff8ccf; text-shadow:0 0 10px rgba(255, 140, 207, 0.6); }
 
 /* SCREEN 1: HEART PROGRESS FIX */
-.hold-area { position: relative; width: 160px; height: 160px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.hold-area { position: relative; width: 160px; height: 160px; touch-action: none; display: flex; align-items: center; justify-content: center; cursor: pointer; }
 .progress-ring { position: absolute; transform: rotate(-90deg); }
 .progress-ring__circle { stroke-dasharray: 440; stroke-dashoffset: 440; transition: stroke-dashoffset 0.1s linear; stroke-linecap: round; }
 .heart-icon { font-size: 55px; z-index: 5; filter: drop-shadow(0 0 8px #ff8ccf); animation: heartbeat 1.5s infinite; }
@@ -130,6 +130,7 @@ body { height:100vh; overflow:hidden; background: #050008; color:white; font-fam
   animation: fadeInSmooth 1s ease forwards;
 
 }
+
 
 
 
