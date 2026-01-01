@@ -111,5 +111,8 @@ document.getElementById("giftBox").onclick = () => {
 document.getElementById("claim").onclick = () => showScreen(3);
 document.querySelector(".flip-inner").onclick = function() {
   document.querySelector(".flip-card").classList.toggle("flipped");
+  document.getElementById("claim").onclick = () => { 
+  showScreen(3); // Agli screen (Final Message) par le jayega
 
 };
+
